@@ -8,8 +8,8 @@ export const INITIAL_SCOOTERS: ScooterModel[] = [
     series: 'Non-RTO Electric Scooter',
     tagline: 'No Registration. No Licence. 60–80 km Range at 25 km/h.',
     description:
-      'The Hestur Energy Dyno is a low-speed, non-RTO electric scooter requiring no registration, no number plate, no insurance, and no driving licence. Powered by a 1000 W motor with a 4-year warranty setup and smart urban convenience features (~₹58,000 + 5% GST, approx. ₹60,900).',
-    price: 58000,
+      'The Hestur Energy Dyno is a low-speed, non-RTO electric scooter requiring no registration, no number plate, no insurance, and no driving licence. Powered by a 1000 W motor with a 4-year warranty setup and smart urban convenience features.',
+    price: 0,
     certifiedRange: 80,
     topSpeed: 25,
     batteryCapacity: '4-Yr Warranty',
@@ -30,7 +30,6 @@ export const INITIAL_SCOOTERS: ScooterModel[] = [
       'Non-RTO Electric Scooter — No Registration, Number Plate, Insurance or Driving Licence Required',
       '1000 W Motor with 25 km/h Top Speed (Low-Speed Non-RTO Category)',
       '60 to 80 km Driving Range per Charge',
-      'Approx. ₹58,000 + 5% GST (~₹60,900 Total)',
       'Anti-Theft Alarm & Keyless Entry',
       'Digital Instrument Display',
       'Built-in USB Smartphone Charging',

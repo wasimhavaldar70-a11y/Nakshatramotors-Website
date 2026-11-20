@@ -10,7 +10,7 @@ import { getSupabase, isSupabaseConfigured } from './supabaseClient';
 
 const STORAGE_KEYS = {
   SCOOTERS: 'nakshatra_scooters',
-  SCOOTERS_LINEUP_MIGRATION: 'nakshatra_scooters_lineup_v3',
+  SCOOTERS_LINEUP_MIGRATION: 'nakshatra_scooters_lineup_v4',
   ENQUIRIES: 'nakshatra_enquiries',
   TESTIMONIALS: 'nakshatra_testimonials',
   FAQS: 'nakshatra_faqs',
@@ -105,6 +105,17 @@ export const store = {
       } catch (e) {
         console.error('Error migrating scooter lineup in storage:', e);
       }
+    }
+
+    // Ensure Dyno rate is removed in stored state
+    const dyno = list.find((s) => s.id === 'hestur-dyno-flagship');
+    if (dyno && dyno.price > 0) {
+      dyno.price = 0;
+      dyno.description = dyno.description.replace(/\s*\(~₹58,000 \+ 5% GST, approx\. ₹60,900\)\./, '.');
+      dyno.features = dyno.features.filter((f) => !f.includes('58,000') && !f.includes('60,900'));
+      try {
+        localStorage.setItem(STORAGE_KEYS.SCOOTERS, JSON.stringify(list));
+      } catch (_) {}
     }
 
     return list.filter((s) => s.id !== 'hestur-v80-lite' && s.id !== 'hestur-cargo-delivery');
