@@ -16,8 +16,6 @@ import { ScooterDetailPage } from './components/scooters/ScooterDetailPage';
 import { AboutPage } from './components/about/AboutPage';
 import { ContactPage } from './components/contact/ContactPage';
 import { PrivacyPolicyPage, TermsPage } from './components/legal/LegalPages';
-import { AdminLogin } from './components/admin/AdminLogin';
-import { AdminDashboard } from './components/admin/AdminDashboard';
 import { WhatsAppFloatingButton } from './components/common/WhatsAppFloatingButton';
 import { TestRideModal } from './components/common/TestRideModal';
 import { useStore } from './lib/store';
@@ -43,11 +41,11 @@ export default function App() {
     return () => window.removeEventListener('popstate', handlePopState);
   }, []);
 
-  // Normalize legacy /admin/login or trailing slash to canonical /admin
+  // Redirect any legacy admin URLs directly to home
   useEffect(() => {
-    if (currentPath === '/admin/' || currentPath === '/admin/login') {
-      window.history.replaceState({}, '', '/admin');
-      setCurrentPath('/admin');
+    if (currentPath === '/admin' || currentPath.startsWith('/admin/')) {
+      window.history.replaceState({}, '', '/');
+      setCurrentPath('/');
     }
   }, [currentPath]);
 
@@ -78,38 +76,9 @@ export default function App() {
     setTestRideModalOpen(true);
   };
 
-  const isAdmin = store.isAdminLoggedIn();
-
   // Route matching
   const renderCurrentView = () => {
-    // 1. Admin portal route (/admin hosts login when signed out, dashboard when authenticated)
-    if (currentPath === '/admin' || currentPath === '/admin/' || currentPath === '/admin/login') {
-      if (!isAdmin) {
-        return (
-          <AdminLogin
-            onLoginSuccess={() => {
-              if (currentPath !== '/admin') {
-                navigate('/admin');
-              } else {
-                window.scrollTo({ top: 0, behavior: 'smooth' });
-              }
-            }}
-            onBackToSite={() => navigate('/')}
-          />
-        );
-      }
-      return (
-        <AdminDashboard
-          onLogout={() => {
-            store.setAdminLoggedIn(false);
-            navigate('/');
-          }}
-          onNavigateHome={() => navigate('/')}
-        />
-      );
-    }
-
-    // 3. Scooter detail page: /scooters/:slug
+    // 1. Scooter detail page: /scooters/:slug
     if (currentPath.startsWith('/scooters/')) {
       const slug = currentPath.replace('/scooters/', '');
       return (
