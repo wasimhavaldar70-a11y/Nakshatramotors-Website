@@ -148,17 +148,17 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                   </h3>
                   <div className="flex flex-wrap items-center gap-x-2 gap-y-1 mt-1 font-mono text-sm">
                     <a
-                      href="tel:+917972131513"
+                      href="tel:+917219759191"
                       className="font-bold text-blue-600 hover:text-blue-700"
                     >
-                      +91 7972131513
+                      +91 721 975 9191
                     </a>
                     <span className="text-slate-400">/</span>
                     <a
-                      href="tel:+917350142525"
+                      href="tel:+917972131513"
                       className="font-bold text-blue-600 hover:text-blue-700"
                     >
-                      +91 7350142525
+                      +91 79 7213 1513
                     </a>
                   </div>
                 </div>
@@ -187,7 +187,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                 className="w-full py-4 px-4 bg-[#25D366] hover:bg-[#20bd5a] active:scale-95 text-white font-bold rounded-2xl transition-all flex items-center justify-center gap-2 text-sm shadow-lg shadow-[#25D366]/30"
               >
                 <MessageSquare className="w-4 h-4 fill-white stroke-none" />
-                Chat on WhatsApp (+91 7972131513)
+                Chat on WhatsApp (+91 721 975 9191)
               </button>
             </div>
           </Reveal>
@@ -257,7 +257,7 @@ export const ContactSection: React.FC<ContactSectionProps> = ({
                       type="tel"
                       value={mobile}
                       onChange={(e) => setMobile(e.target.value)}
-                      placeholder="e.g. 7972131513"
+                      placeholder="e.g. 7219759191"
                       className={`w-full bg-[#F8FAFC] border rounded-xl px-3.5 py-2.5 text-sm text-slate-900 placeholder-slate-400 focus:outline-none transition-colors ${
                         errors.mobile
                           ? 'border-red-500 focus:border-red-500'

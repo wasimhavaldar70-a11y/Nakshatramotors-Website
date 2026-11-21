@@ -85,11 +85,11 @@ export const ContactPage: React.FC = () => {
                   <div>
                     <span className="text-slate-500 block text-[11px] uppercase tracking-wider font-semibold">Mobile Lines:</span>
                     <div className="flex flex-col gap-0.5 font-mono text-slate-200">
-                      <a href="tel:+917972131513" className="hover:text-white transition-colors">
-                        +91 7972131513
+                      <a href="tel:+917219759191" className="hover:text-white transition-colors">
+                        +91 721 975 9191
                       </a>
-                      <a href="tel:+917350142525" className="hover:text-white transition-colors">
-                        +91 7350142525
+                      <a href="tel:+917972131513" className="hover:text-white transition-colors">
+                        +91 79 7213 1513
                       </a>
                     </div>
                   </div>
@@ -106,7 +106,7 @@ export const ContactPage: React.FC = () => {
                     className="inline-flex items-center gap-1.5 px-3 py-1.5 rounded-lg bg-emerald-600/20 border border-emerald-500/30 text-xs text-emerald-400 hover:bg-emerald-600/30 font-semibold transition-colors"
                   >
                     <MessageSquare className="w-3.5 h-3.5" />
-                    WhatsApp (+91 7972131513)
+                    WhatsApp (+91 721 975 9191)
                   </button>
                 </div>
               </div>

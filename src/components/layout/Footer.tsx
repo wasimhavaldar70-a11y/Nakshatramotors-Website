@@ -52,7 +52,7 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
                 className="inline-flex items-center gap-2 px-4 py-2 bg-emerald-600/20 border border-emerald-500/40 text-emerald-400 rounded-xl text-xs font-bold hover:bg-emerald-600/30 transition-colors"
               >
                 <MessageSquare className="w-4 h-4 fill-emerald-400 stroke-none" />
-                WhatsApp: +91 7972131513
+                WhatsApp: +91 721 975 9191
                 <ArrowUpRight className="w-3.5 h-3.5" />
               </button>
             </div>
@@ -149,11 +149,11 @@ export const Footer: React.FC<FooterProps> = ({ onNavigate }) => {
               <li className="flex items-start gap-2">
                 <Phone className="w-4 h-4 text-blue-400 shrink-0 mt-0.5" />
                 <div className="flex flex-col gap-1 font-mono">
-                  <a href="tel:+917972131513" className="hover:text-white transition-colors">
-                    +91 7972131513
+                  <a href="tel:+917219759191" className="hover:text-white transition-colors">
+                    +91 721 975 9191
                   </a>
-                  <a href="tel:+917350142525" className="hover:text-white transition-colors">
-                    +91 7350142525
+                  <a href="tel:+917972131513" className="hover:text-white transition-colors">
+                    +91 79 7213 1513
                   </a>
                 </div>
               </li>

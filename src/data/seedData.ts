@@ -329,8 +329,8 @@ export const INITIAL_SETTINGS: SiteSettings = {
   heroHeadline: 'Move Beyond Ordinary. Ride Electric.',
   heroSupportingText:
     'Discover a smarter, cleaner and more exciting way to travel with Hestur Energy electric scooters at Nakshatra Motors.',
-  phone: '+91 7972131513 / +91 7350142525',
-  whatsappNumber: '+917972131513',
+  phone: '+91 721 975 9191 / +91 79 7213 1513',
+  whatsappNumber: '+917219759191',
   email: 'nakshatramotors24@gmail.com',
   address: 'Front of Vadgaon Highschool, Hatkanagale Road',
   city: 'Peth Vadgaon',

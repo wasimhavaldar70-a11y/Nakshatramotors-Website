@@ -322,7 +322,8 @@ export const store = {
       (stored.phone?.includes('98450') ||
         stored.city === 'Bengaluru' ||
         stored.address?.includes('Outer Ring Road') ||
-        !stored.phone?.includes('7972131513'))
+        !stored.phone?.includes('721 975 9191') ||
+        stored.whatsappNumber !== '+917219759191')
     ) {
       setLocalItem(STORAGE_KEYS.SETTINGS, INITIAL_SETTINGS);
       return INITIAL_SETTINGS;
