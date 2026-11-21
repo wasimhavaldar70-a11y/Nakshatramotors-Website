@@ -10,7 +10,7 @@ import { getSupabase, isSupabaseConfigured } from './supabaseClient';
 
 const STORAGE_KEYS = {
   SCOOTERS: 'nakshatra_scooters',
-  SCOOTERS_LINEUP_MIGRATION: 'nakshatra_scooters_lineup_v5',
+  SCOOTERS_LINEUP_MIGRATION: 'nakshatra_scooters_lineup_v6',
   ENQUIRIES: 'nakshatra_enquiries',
   TESTIMONIALS: 'nakshatra_testimonials',
   FAQS: 'nakshatra_faqs',

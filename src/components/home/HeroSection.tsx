@@ -10,31 +10,31 @@ interface HeroSectionProps {
 export const HERO_SLIDES = [
   {
     id: 'hestur-revolution',
-    image: '/assets/aistudio/1920x1080_2_89056914.jpg',
+    image: '/assets/hero/hero_meet_new_hestur.webp',
     alt: 'Hestur Electric Scooters — Revolutionary Design, Unstoppable Motion. Meet The New Hestur.',
-    badge: 'Flagship Edition',
+    badge: 'Flagship Edition · Unstoppable Motion',
     title: 'Meet The New Hestur',
   },
   {
     id: 'hestur-terrain',
-    image: '/assets/aistudio/1920x1080_3_545056cd.jpg',
-    alt: 'Hestur Electric Scooters — Built For Every Terrain. 80-160 KMS Range.',
-    badge: 'All-Terrain Performance',
+    image: '/assets/hero/hero_built_for_every_terrain.webp',
+    alt: 'Hestur Electric Scooters — Built For Every Terrain. 80-160 KMS Range. 3+1 Years LFP Battery Warranty. IP67. Hill Assist.',
+    badge: 'Built For Every Terrain · 80-160 KMS',
     title: 'Built For Every Terrain',
   },
   {
     id: 'hestur-werewolf',
-    image: '/assets/aistudio/1920x1080_bfe514b2.jpg',
-    alt: 'The All New Werewolf+ — Power Beyond Everyday. 150-300 KMS Range.',
-    badge: 'All New Werewolf+',
+    image: '/assets/hero/hero_all_new_werewolf_plus.webp',
+    alt: 'The All New Werewolf+ — Power Beyond Everyday. 150-300 KMS Range. 7 Years Battery Warranty. IP67. Hill Assist.',
+    badge: 'The All New Werewolf+ · 150-300 KMS',
     title: 'Power Beyond Everyday',
   },
   {
     id: 'hestur-dyno',
     image: '/assets/aistudio/image_3fa52802.png',
-    alt: 'Introducing Hestur Dyno — 50 km/h Top Speed, 80-160 KMS Range.',
-    badge: 'Introducing Dyno',
-    title: '50 km/h Top Speed · 80-160 KMS Range',
+    alt: 'Hestur Dyno — 50 km/h Top Speed, 80-160 KMS Range, On-Road from ₹69,999.',
+    badge: 'Hestur Dyno · 50 km/h Top Speed',
+    title: '80-160 KMS Range · On-Road from ₹69,999',
   },
 ];
 

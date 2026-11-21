@@ -33,7 +33,7 @@ export const BatteryTechSection: React.FC = () => {
       icon: <Award className="w-5 h-5 text-emerald-600" />,
       title: 'Extended Warranty Coverage',
       description:
-        'Entry-level Dyno commuter packs carry a 4-year warranty, while flagship 300 km range variants include a 7-year or 1,40,000 km warranty (extendable up to 10 years or 2,00,000 km).',
+        'Dyno packs carry a 3+1 year LFP battery warranty (4 years total), while Werewolf / Werewolf+ flagships include an official 7-year battery warranty.',
     },
     {
       icon: <Zap className="w-5 h-5 text-purple-600" />,
@@ -177,10 +177,10 @@ export const BatteryTechSection: React.FC = () => {
                 <ShieldCheck className="w-6 h-6 text-blue-600 shrink-0" />
                 <div>
                   <div className="text-xs font-bold text-blue-950 uppercase tracking-wider">
-                    4-Yr Commuter · Up to 7–10 Yr Flagship Warranty
+                    3+1 Yr Dyno · 7-Yr Werewolf Battery Warranty
                   </div>
                   <div className="text-[11px] text-blue-800">
-                    7 yrs / 1,40,000 km standard on 300 km variant (extendable to 10 yrs / 2,00,000 km)
+                    Official manufacturer battery coverage: 3+1 years LFP on Dyno and 7 years on Werewolf models
                   </div>
                 </div>
               </div>
