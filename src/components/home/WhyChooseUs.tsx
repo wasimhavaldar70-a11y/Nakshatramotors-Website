@@ -1,5 +1,5 @@
 import React from 'react';
-import { Award, Wrench, Shield, CreditCard, Navigation, HeartHandshake } from 'lucide-react';
+import { Award, Wrench, Shield, CreditCard, Navigation } from 'lucide-react';
 import { useStore } from '../../lib/store';
 import { Reveal, StaggerGrid, StaggerCard } from '../common/MotionPrimitives';
 
@@ -37,12 +37,6 @@ export const WhyChooseUs: React.FC = () => {
       title: 'Instant Registration & Delivery',
       description:
         'Complete RTO paperwork, insurance issuance, and subsidy documentation managed end-to-end by our dealership team.',
-    },
-    {
-      icon: <HeartHandshake className="w-5 h-5 text-rose-600" />,
-      title: 'Exchange & Buyback Support',
-      description:
-        'Best-in-class trade-in valuation for your old petrol two-wheeler, making your transition to electric seamless and affordable.',
     },
   ];
 
