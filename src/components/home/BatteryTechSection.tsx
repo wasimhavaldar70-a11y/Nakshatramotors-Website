@@ -155,7 +155,7 @@ export const BatteryTechSection: React.FC = () => {
           <Reveal scale={0.94} y={16} delay={0.15} className="lg:col-span-4 flex flex-col items-center">
             <div className="relative w-full aspect-[4/3] rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-slate-900 group">
               <img
-                src="/src/assets/images/scooter_battery_tech_1794361173099.jpg"
+                src="/assets/battery/hestur_battery_architecture_cutaway.jpg"
                 alt="Electric vehicle lithium battery pack engineering cutaway"
                 referrerPolicy="no-referrer"
                 className="w-full h-full object-cover transform group-hover:scale-105 transition-transform duration-700"
