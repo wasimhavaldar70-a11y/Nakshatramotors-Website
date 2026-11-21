@@ -1,9 +1,24 @@
-import React from 'react';
-import { motion } from 'motion/react';
-import { ShieldCheck, Cpu, Flame, Droplets, Zap, RefreshCw, BatteryCharging, Award } from 'lucide-react';
+import React, { useState } from 'react';
+import { motion, AnimatePresence } from 'motion/react';
+import {
+  ShieldCheck,
+  Cpu,
+  Flame,
+  Droplets,
+  Zap,
+  RefreshCw,
+  BatteryCharging,
+  Award,
+  Timer,
+  CheckCircle2,
+  LayoutGrid,
+  Table,
+  Sparkles,
+} from 'lucide-react';
 import { Reveal, StaggerGrid, StaggerCard, EASE_OUT_EXPO, VIEWPORT_ONCE } from '../common/MotionPrimitives';
 
 export const BatteryTechSection: React.FC = () => {
+  const [viewMode, setViewMode] = useState<'cards' | 'table'>('cards');
   const techPillars = [
     {
       icon: <ShieldCheck className="w-5 h-5 text-blue-600" />,
@@ -46,36 +61,87 @@ export const BatteryTechSection: React.FC = () => {
   const scooterPowertrainModels = [
     {
       model: 'Hestur Dyno (80 km / 160 km)',
+      badge: 'Urban Commuter',
+      badgeStyle: 'bg-blue-50 text-blue-700 border border-blue-200',
+      category: 'Everyday Non-RTO Mobility',
       motorPower: '1000 W',
       topSpeed: '50 km/h',
       claimedRange: '80–160 km',
       batteryCharging: 'High-density pack (3–4 hrs charge)',
-      keyFeatures: 'Front disc brake, keyless entry, anti-theft alarm, USB port, on-road from ₹69,999.',
-    },
-    {
-      model: 'Hestur WereWolf Plus',
-      motorPower: '3000 W',
-      topSpeed: 'Mid-to-high speed (~65 km/h)',
-      claimedRange: '150 km (up to 300 km in Eco)',
-      batteryCharging: 'High-capacity pack (5 hrs charge)',
-      keyFeatures: 'Available in 8 colors including Fiery Crimson Red and Graphite Grey Storm.',
+      priceTag: 'From ₹69,999',
+      keyFeatures:
+        'Front disc brake, keyless entry, anti-theft alarm, USB port, on-road from ₹69,999.',
+      features: [
+        'Front disc brake & CBS safety',
+        'Keyless entry & anti-theft alarm',
+        'Built-in USB phone charger',
+        'Hill Assist & IP67 water resistance',
+        'Dyno 80 km (₹69,999) / Dyno 160 km (₹1,04,999)',
+      ],
+      highlight: false,
     },
     {
       model: 'Hestur WereWolf (150 km)',
+      badge: 'Performance Commuter',
+      badgeStyle: 'bg-emerald-50 text-emerald-700 border border-emerald-200',
+      category: 'Removable Battery Touring',
       motorPower: 'High-Torque Electric Motor',
       topSpeed: '~65 km/h (up to 90 km/h peak)',
       claimedRange: '150 km (up to 300 km in Eco)',
       batteryCharging: 'Removable pack (5 hrs charge)',
+      priceTag: '₹1,25,999',
       keyFeatures:
         'Dual disc brakes, hill hold/assist, reverse gear, on-road ₹1,25,999.',
+      features: [
+        'Dual disc brakes (Front & Rear)',
+        'Hill hold assist & reverse gear assist',
+        'Removable NMC pack (~5 hrs charge)',
+        'Up to 90 km/h peak throttle capability',
+        '7 Years manufacturer battery warranty',
+      ],
+      highlight: false,
+    },
+    {
+      model: 'Hestur WereWolf Plus',
+      badge: 'Flagship Power',
+      badgeStyle: 'bg-purple-50 text-purple-700 border border-purple-200',
+      category: 'Power Beyond Everyday',
+      motorPower: '3000 W',
+      topSpeed: 'Mid-to-high speed (~65 km/h)',
+      claimedRange: '150 km (up to 300 km in Eco)',
+      batteryCharging: 'High-capacity pack (5 hrs charge)',
+      priceTag: '8 Colors',
+      keyFeatures:
+        'Available in 8 colors including Fiery Crimson Red and Graphite Grey Storm.',
+      features: [
+        '3000 W high-power electric drive',
+        '150 km range (up to 300 km in Eco)',
+        '8 colors (Fiery Crimson Red, Graphite Grey)',
+        'High-capacity pack with 5 hrs charge',
+        '7 Years official battery warranty',
+      ],
+      highlight: true,
     },
     {
       model: '300 km Long-Range Variant',
+      badge: 'Ultimate Endurance',
+      badgeStyle: 'bg-amber-50 text-amber-700 border border-amber-200',
+      category: 'Multi-Mode Extended Touring',
       motorPower: 'High-output',
       topSpeed: 'Multi-mode',
       claimedRange: 'Up to 300 km (Eco)',
       batteryCharging: '4.5 kWh pack',
-      keyFeatures: 'Three ride modes: Eco (300 km), Normal (~220 km), and Sport (~180 km).',
+      priceTag: '3 Ride Modes',
+      keyFeatures:
+        'Three ride modes: Eco (300 km), Normal (~220 km), and Sport (~180 km).',
+      features: [
+        'Eco Mode: Up to 300 km maximum range',
+        'Normal Mode: ~220 km balanced range',
+        'Sport Mode: ~180 km dynamic response',
+        '4.5 kWh high-energy battery pack',
+        'Regenerative braking & energy recovery',
+      ],
+      highlight: false,
     },
   ];
 
@@ -214,96 +280,216 @@ export const BatteryTechSection: React.FC = () => {
         </div>
 
         {/* Hestur Energy Scooter Models Powertrain & Battery Lineup Matrix */}
-        <Reveal delay={0.1} className="mb-12">
-          <div className="flex flex-col sm:flex-row sm:items-end justify-between gap-2 mb-5">
+        <Reveal delay={0.1} className="mb-14">
+          <div className="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-6">
             <div>
-              <span className="text-[11px] font-bold uppercase tracking-widest text-blue-600 block mb-1">
+              <div className="inline-flex items-center gap-1.5 text-xs font-bold uppercase tracking-widest text-blue-600 mb-1.5">
+                <Sparkles className="w-3.5 h-3.5" />
                 Model Comparison Matrix
-              </span>
-              <h3 className="text-xl sm:text-2xl font-extrabold text-slate-900 tracking-tight">
+              </div>
+              <h3 className="text-2xl sm:text-3xl font-extrabold text-slate-900 tracking-tight">
                 Hestur Energy Scooter Models
               </h3>
+              <p className="text-xs sm:text-sm text-slate-500 font-medium mt-1">
+                From 1000 W city commuters to 3000 W &amp; 300 km endurance flagships. Compare key specs at a glance.
+              </p>
             </div>
-            <span className="text-xs text-slate-500 font-medium">
-              From 1000 W urban commuters to 8000 W &amp; 300 km long-range flagships
-            </span>
-          </div>
 
-          {/* Desktop Comparison Table */}
-          <div className="hidden md:block bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm">
-            <div className="overflow-x-auto">
-              <table className="w-full text-left border-collapse">
-                <thead>
-                  <tr className="bg-slate-900 text-white text-[11px] uppercase tracking-wider">
-                    <th className="py-3.5 px-5 font-bold">Model</th>
-                    <th className="py-3.5 px-4 font-bold">Motor Power</th>
-                    <th className="py-3.5 px-4 font-bold">Top Speed</th>
-                    <th className="py-3.5 px-4 font-bold">Claimed Range</th>
-                    <th className="py-3.5 px-4 font-bold">Battery &amp; Charging</th>
-                    <th className="py-3.5 px-5 font-bold">Key Features</th>
-                  </tr>
-                </thead>
-                <tbody className="divide-y divide-slate-200 text-xs sm:text-sm">
-                  {scooterPowertrainModels.map((item) => (
-                    <tr key={item.model} className="hover:bg-blue-50/40 transition-colors">
-                      <td className="py-4 px-5 font-bold text-slate-900 whitespace-nowrap">
-                        {item.model}
-                      </td>
-                      <td className="py-4 px-4 font-mono font-semibold text-blue-600 whitespace-nowrap">
-                        {item.motorPower}
-                      </td>
-                      <td className="py-4 px-4 font-mono text-slate-800 whitespace-nowrap">
-                        {item.topSpeed}
-                      </td>
-                      <td className="py-4 px-4 font-mono font-bold text-emerald-700 whitespace-nowrap">
-                        {item.claimedRange}
-                      </td>
-                      <td className="py-4 px-4 text-slate-700 font-medium">
-                        {item.batteryCharging}
-                      </td>
-                      <td className="py-4 px-5 text-slate-600 text-xs leading-relaxed max-w-xs">
-                        {item.keyFeatures}
-                      </td>
-                    </tr>
-                  ))}
-                </tbody>
-              </table>
-            </div>
-          </div>
-
-          {/* Mobile Stacked Cards */}
-          <div className="grid grid-cols-1 gap-4 md:hidden">
-            {scooterPowertrainModels.map((item) => (
-              <div
-                key={item.model}
-                className="bg-[#F8FAFC] border border-slate-200 rounded-2xl p-4 space-y-3"
+            {/* View Mode Toggle: Cards vs Table */}
+            <div className="inline-flex p-1 bg-slate-100 rounded-xl border border-slate-200 self-start md:self-auto shrink-0">
+              <button
+                type="button"
+                onClick={() => setViewMode('cards')}
+                className={`flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all ${
+                  viewMode === 'cards'
+                    ? 'bg-white text-blue-600 shadow-sm border border-slate-200/80'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
               >
-                <div className="flex items-center justify-between gap-2 border-b border-slate-200 pb-2.5">
-                  <h4 className="font-bold text-slate-900 text-base">{item.model}</h4>
-                  <span className="text-xs font-mono font-bold text-emerald-700 bg-emerald-50 border border-emerald-200 px-2.5 py-0.5 rounded-full">
-                    {item.claimedRange}
-                  </span>
-                </div>
-                <div className="grid grid-cols-2 gap-2.5 text-xs">
-                  <div>
-                    <span className="text-slate-500 block">Motor Power</span>
-                    <span className="font-mono font-bold text-blue-600">{item.motorPower}</span>
-                  </div>
-                  <div>
-                    <span className="text-slate-500 block">Top Speed</span>
-                    <span className="font-mono font-semibold text-slate-900">{item.topSpeed}</span>
-                  </div>
-                  <div className="col-span-2">
-                    <span className="text-slate-500 block">Battery &amp; Charging</span>
-                    <span className="font-medium text-slate-800">{item.batteryCharging}</span>
-                  </div>
-                </div>
-                <p className="text-xs text-slate-600 leading-relaxed pt-1 border-t border-slate-200/70">
-                  {item.keyFeatures}
-                </p>
-              </div>
-            ))}
+                <LayoutGrid className="w-3.5 h-3.5" />
+                Comparison Cards
+              </button>
+              <button
+                type="button"
+                onClick={() => setViewMode('table')}
+                className={`flex items-center gap-1.5 px-3.5 py-1.5 text-xs font-bold rounded-lg transition-all ${
+                  viewMode === 'table'
+                    ? 'bg-white text-blue-600 shadow-sm border border-slate-200/80'
+                    : 'text-slate-600 hover:text-slate-900'
+                }`}
+              >
+                <Table className="w-3.5 h-3.5" />
+                Spec Matrix Table
+              </button>
+            </div>
           </div>
+
+          <AnimatePresence mode="wait">
+            {viewMode === 'cards' ? (
+              <motion.div
+                key="cards"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.25 }}
+                className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5"
+              >
+                {scooterPowertrainModels.map((item) => (
+                  <div
+                    key={item.model}
+                    className={`relative flex flex-col justify-between rounded-3xl p-5 sm:p-6 transition-all duration-200 bg-white border ${
+                      item.highlight
+                        ? 'border-blue-500 shadow-lg shadow-blue-500/10 ring-2 ring-blue-500/20'
+                        : 'border-slate-200/90 shadow-sm hover:shadow-md hover:border-slate-300'
+                    }`}
+                  >
+                    <div>
+                      {/* Top Badges */}
+                      <div className="flex items-center justify-between gap-2 mb-3">
+                        <span className={`text-[10px] font-extrabold uppercase tracking-wider px-2.5 py-0.5 rounded-full ${item.badgeStyle}`}>
+                          {item.badge}
+                        </span>
+                        {item.priceTag && (
+                          <span className="text-xs font-extrabold text-blue-600 font-mono">
+                            {item.priceTag}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Model Title */}
+                      <h4 className="text-base sm:text-lg font-extrabold text-slate-900 tracking-tight leading-snug mb-1">
+                        {item.model}
+                      </h4>
+                      <p className="text-[11px] text-slate-500 font-medium mb-4">
+                        {item.category}
+                      </p>
+
+                      {/* Primary Metrics: Range & Speed */}
+                      <div className="grid grid-cols-2 gap-2 p-3 bg-slate-50 border border-slate-200/80 rounded-2xl mb-4 text-center">
+                        <div>
+                          <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">
+                            Claimed Range
+                          </span>
+                          <span className="text-xs sm:text-sm font-extrabold text-emerald-700 font-mono block">
+                            {item.claimedRange}
+                          </span>
+                        </div>
+                        <div className="border-l border-slate-200">
+                          <span className="text-[10px] uppercase font-bold text-slate-400 block tracking-wider">
+                            Top Speed
+                          </span>
+                          <span className="text-xs sm:text-sm font-extrabold text-slate-900 font-mono block">
+                            {item.topSpeed}
+                          </span>
+                        </div>
+                      </div>
+
+                      {/* Key Specs Breakdown */}
+                      <div className="space-y-2.5 text-xs mb-4">
+                        <div className="flex items-start gap-2 text-slate-700">
+                          <Zap className="w-3.5 h-3.5 text-amber-500 shrink-0 mt-0.5" />
+                          <div className="leading-tight">
+                            <span className="text-slate-400 font-semibold text-[11px] block">Motor Power</span>
+                            <span className="font-semibold text-slate-900 font-mono">{item.motorPower}</span>
+                          </div>
+                        </div>
+
+                        <div className="flex items-start gap-2 text-slate-700">
+                          <Timer className="w-3.5 h-3.5 text-blue-500 shrink-0 mt-0.5" />
+                          <div className="leading-tight">
+                            <span className="text-slate-400 font-semibold text-[11px] block">Battery &amp; Charging</span>
+                            <span className="font-medium text-slate-800">{item.batteryCharging}</span>
+                          </div>
+                        </div>
+                      </div>
+
+                      {/* Feature Bullet Points */}
+                      <div className="pt-3 border-t border-slate-100">
+                        <span className="text-[10px] uppercase font-bold text-slate-400 tracking-wider block mb-2">
+                          Key Features
+                        </span>
+                        <ul className="space-y-1.5">
+                          {item.features.map((feat, fIdx) => (
+                            <li key={fIdx} className="flex items-start gap-1.5 text-xs text-slate-600 leading-snug">
+                              <CheckCircle2 className="w-3.5 h-3.5 text-emerald-500 shrink-0 mt-0.5" />
+                              <span>{feat}</span>
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            ) : (
+              <motion.div
+                key="table"
+                initial={{ opacity: 0, y: 12 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -12 }}
+                transition={{ duration: 0.25 }}
+                className="bg-white border border-slate-200 rounded-3xl overflow-hidden shadow-sm"
+              >
+                <div className="overflow-x-auto">
+                  <table className="w-full text-left border-collapse">
+                    <thead>
+                      <tr className="bg-slate-900 text-white text-[11px] uppercase tracking-wider">
+                        <th className="py-4 px-5 font-bold">Model</th>
+                        <th className="py-4 px-4 font-bold">Motor Power</th>
+                        <th className="py-4 px-4 font-bold">Top Speed</th>
+                        <th className="py-4 px-4 font-bold">Claimed Range</th>
+                        <th className="py-4 px-4 font-bold">Battery &amp; Charging</th>
+                        <th className="py-4 px-5 font-bold">Key Features</th>
+                      </tr>
+                    </thead>
+                    <tbody className="divide-y divide-slate-200 text-xs sm:text-sm">
+                      {scooterPowertrainModels.map((item, idx) => (
+                        <tr
+                          key={item.model}
+                          className={`hover:bg-blue-50/40 transition-colors ${
+                            idx % 2 === 1 ? 'bg-slate-50/50' : 'bg-white'
+                          }`}
+                        >
+                          <td className="py-4 px-5 font-bold text-slate-900 whitespace-nowrap">
+                            <div className="flex items-center gap-2">
+                              <span>{item.model}</span>
+                              {item.highlight && (
+                                <span className="text-[10px] font-extrabold uppercase px-2 py-0.5 bg-blue-100 text-blue-700 rounded-full">
+                                  Flagship
+                                </span>
+                              )}
+                            </div>
+                            <span className="text-[11px] text-slate-500 font-normal block mt-0.5">
+                              {item.category}
+                            </span>
+                          </td>
+                          <td className="py-4 px-4 font-mono font-bold text-blue-600 whitespace-nowrap">
+                            {item.motorPower}
+                          </td>
+                          <td className="py-4 px-4 font-mono text-slate-800 whitespace-nowrap">
+                            <span className="px-2 py-0.5 rounded-md bg-slate-100 font-semibold">
+                              {item.topSpeed}
+                            </span>
+                          </td>
+                          <td className="py-4 px-4 font-mono font-bold text-emerald-700 whitespace-nowrap">
+                            <span className="px-2.5 py-1 rounded-full bg-emerald-50 border border-emerald-200/80">
+                              {item.claimedRange}
+                            </span>
+                          </td>
+                          <td className="py-4 px-4 text-slate-700 font-medium">
+                            {item.batteryCharging}
+                          </td>
+                          <td className="py-4 px-5 text-slate-600 text-xs leading-relaxed max-w-sm">
+                            {item.keyFeatures}
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </motion.div>
+            )}
+          </AnimatePresence>
         </Reveal>
 
         {/* Battery Technologies & Specifications Cards */}
