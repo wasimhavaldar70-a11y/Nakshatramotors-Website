@@ -31,8 +31,8 @@ export const AboutPage: React.FC<AboutPageProps> = ({ onNavigate }) => {
           <div className="lg:col-span-6">
             <div className="rounded-3xl overflow-hidden border border-slate-200/90 shadow-xl relative group">
               <img
-                src="/src/assets/images/showroom_dealership_1794361173747.jpg"
-                alt="Nakshatra Motors Authorized Hestur Energy Dealership"
+                src="/assets/showroom/nakshatra_experience_center.jpg"
+                alt="Nakshatra Motors Authorized Hestur Energy Dealership Experience Center"
                 referrerPolicy="no-referrer"
                 className="w-full h-[420px] object-cover transform group-hover:scale-105 transition-transform duration-700"
               />

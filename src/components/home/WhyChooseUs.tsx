@@ -86,8 +86,8 @@ export const WhyChooseUs: React.FC = () => {
           <Reveal x={24} y={0} delay={0.12} className="lg:col-span-5">
             <div className="relative rounded-3xl overflow-hidden border border-slate-200 shadow-xl bg-slate-900 group">
               <img
-                src="/src/assets/images/showroom_dealership_1794361173747.jpg"
-                alt="Nakshatra Motors Authorized Hestur Dealership Showroom"
+                src="/assets/showroom/nakshatra_experience_center.jpg"
+                alt="Nakshatra Motors Authorized Hestur Dealership Experience Center"
                 referrerPolicy="no-referrer"
                 className="w-full h-[460px] object-cover transform group-hover:scale-105 transition-transform duration-700"
               />
