@@ -2,21 +2,27 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { Menu, X, ArrowUpRight } from 'lucide-react';
 import { useStore } from '../../lib/store';
+import { generateWhatsAppLink } from '../../utils/evCalculations';
 
 interface NavbarProps {
   currentPath: string;
   onNavigate: (path: string) => void;
-  onOpenTestRideModal: () => void;
+  onOpenTestRideModal?: () => void;
 }
 
 export const Navbar: React.FC<NavbarProps> = ({
   currentPath,
   onNavigate,
-  onOpenTestRideModal,
 }) => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const store = useStore();
   const settings = store.getSettings();
+
+  const handleEnquireWhatsApp = () => {
+    const text = `Hello ${settings.dealerName || 'Nakshatra Motors'}, I would like to enquire about your Hestur Energy electric scooters. Please share available models, pricing and specifications.`;
+    const link = generateWhatsAppLink(settings.whatsappNumber, text);
+    window.open(link, '_blank', 'noopener,noreferrer');
+  };
 
   const navLinks = [
     { label: 'Home', path: '/' },
@@ -78,13 +84,13 @@ export const Navbar: React.FC<NavbarProps> = ({
             })}
           </nav>
 
-          {/* Zone 3: 1 primary action matching Image 2 High-Energy Lime Green Pill button */}
+          {/* Zone 3: 1 primary action matching Lime Green Pill button */}
           <div className="hidden md:flex items-center gap-4 shrink-0">
             <button
-              onClick={onOpenTestRideModal}
+              onClick={handleEnquireWhatsApp}
               className="px-5 py-2.5 text-xs font-black uppercase tracking-wider text-slate-950 bg-[#CCFF00] hover:bg-[#b8e600] active:scale-95 rounded-full transition-all duration-150 shadow-md shadow-[#CCFF00]/30 whitespace-nowrap shrink-0 flex items-center gap-1.5"
             >
-              <span>Book Test Ride</span>
+              <span>Enquire</span>
               <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
             </button>
           </div>
@@ -92,10 +98,11 @@ export const Navbar: React.FC<NavbarProps> = ({
           {/* Mobile hamburger button */}
           <div className="flex md:hidden items-center gap-3">
             <button
-              onClick={onOpenTestRideModal}
-              className="px-3.5 py-1.5 text-xs font-bold text-slate-950 bg-[#CCFF00] rounded-full whitespace-nowrap"
+              onClick={handleEnquireWhatsApp}
+              className="px-3.5 py-1.5 text-xs font-bold text-slate-950 bg-[#CCFF00] rounded-full whitespace-nowrap flex items-center gap-1"
             >
-              Test Ride ↗
+              <span>Enquire</span>
+              <ArrowUpRight className="w-3.5 h-3.5 stroke-[2.5]" />
             </button>
             <button
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
@@ -129,6 +136,18 @@ export const Navbar: React.FC<NavbarProps> = ({
                 </button>
               ))}
             </nav>
+            <div className="pt-2">
+              <button
+                onClick={() => {
+                  setMobileMenuOpen(false);
+                  handleEnquireWhatsApp();
+                }}
+                className="w-full py-2.5 px-4 text-xs font-black uppercase tracking-wider text-slate-950 bg-[#CCFF00] hover:bg-[#b8e600] active:scale-95 rounded-full transition-all flex items-center justify-center gap-1.5 shadow-sm"
+              >
+                <span>Enquire</span>
+                <ArrowUpRight className="w-4 h-4 stroke-[2.5]" />
+              </button>
+            </div>
           </motion.div>
         )}
       </AnimatePresence>
