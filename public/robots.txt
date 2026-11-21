@@ -1,0 +1,9 @@
+# Nakshatra Motors - Robots.txt
+# https://www.nakshatramotors.com
+
+User-agent: *
+Allow: /
+Disallow: /admin
+Disallow: /admin/
+
+Sitemap: https://www.nakshatramotors.com/sitemap.xml
