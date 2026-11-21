@@ -10,31 +10,31 @@ interface HeroSectionProps {
 export const HERO_SLIDES = [
   {
     id: 'hestur-revolution',
-    image: '/public/assets/aistudio/1920x1080_2_89056914.jpg',
+    image: '/assets/aistudio/1920x1080_2_89056914.jpg',
     alt: 'Hestur Electric Scooters — Revolutionary Design, Unstoppable Motion. Meet The New Hestur.',
     badge: 'Flagship Edition',
     title: 'Meet The New Hestur',
   },
   {
     id: 'hestur-terrain',
-    image: '/public/assets/aistudio/1920x1080_3_545056cd.jpg',
+    image: '/assets/aistudio/1920x1080_3_545056cd.jpg',
     alt: 'Hestur Electric Scooters — Built For Every Terrain. 80-160 KMS Range.',
     badge: 'All-Terrain Performance',
     title: 'Built For Every Terrain',
   },
   {
     id: 'hestur-werewolf',
-    image: '/public/assets/aistudio/1920x1080_bfe514b2.jpg',
+    image: '/assets/aistudio/1920x1080_bfe514b2.jpg',
     alt: 'The All New Werewolf+ — Power Beyond Everyday. 150-300 KMS Range.',
     badge: 'All New Werewolf+',
     title: 'Power Beyond Everyday',
   },
   {
     id: 'hestur-dyno',
-    image: '/public/assets/aistudio/image_3fa52802.png',
-    alt: 'Introducing Hestur Dyno — Long Life, More Range, Less Price.',
+    image: '/assets/aistudio/image_3fa52802.png',
+    alt: 'Introducing Hestur Dyno — 50 km/h Top Speed, 80-160 KMS Range.',
     badge: 'Introducing Dyno',
-    title: 'Long Life. More Range. Less Price.',
+    title: '50 km/h Top Speed · 80-160 KMS Range',
   },
 ];
 

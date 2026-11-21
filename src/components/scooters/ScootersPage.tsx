@@ -209,7 +209,7 @@ export const ScootersPage: React.FC<ScootersPageProps> = ({
                   <div className="pt-4 border-t border-slate-100 space-y-3">
                     <div className="flex items-baseline justify-between">
                       <span className="text-xs font-semibold text-slate-500">
-                        {scooter.price > 0 ? 'Ex-Showroom Price' : 'Dealer Price'}
+                        {scooter.price > 0 ? 'On-Road Price' : 'Dealer Price'}
                       </span>
                       <span className="text-2xl font-black text-slate-900 font-mono tabular-nums">
                         {formatScooterPrice(scooter.price)}

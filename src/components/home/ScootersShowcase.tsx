@@ -24,7 +24,7 @@ export const ScootersShowcase: React.FC<ScootersShowcaseProps> = ({
 
   const filteredScooters = scooters.filter((s) => {
     if (activeFilter === 'flagship') return s.certifiedRange >= 120;
-    if (activeFilter === 'city') return s.topSpeed <= 25 || (s.price > 0 && s.price <= 115000);
+    if (activeFilter === 'city') return s.topSpeed <= 50 || (s.price > 0 && s.price <= 115000);
     return true;
   });
 
@@ -210,7 +210,7 @@ export const ScootersShowcase: React.FC<ScootersShowcaseProps> = ({
                   <div className="pt-4 border-t border-slate-100 space-y-3">
                     <div className="flex items-baseline justify-between">
                       <span className="text-xs font-semibold text-slate-500">
-                        {scooter.price > 0 ? 'Ex-Showroom Price' : 'Dealer Price'}
+                        {scooter.price > 0 ? 'On-Road Price' : 'Dealer Price'}
                       </span>
                       <span className="text-2xl font-black text-slate-900 font-mono tabular-nums">
                         {formatScooterPrice(scooter.price)}

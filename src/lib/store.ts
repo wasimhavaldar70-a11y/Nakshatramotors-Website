@@ -10,7 +10,7 @@ import { getSupabase, isSupabaseConfigured } from './supabaseClient';
 
 const STORAGE_KEYS = {
   SCOOTERS: 'nakshatra_scooters',
-  SCOOTERS_LINEUP_MIGRATION: 'nakshatra_scooters_lineup_v4',
+  SCOOTERS_LINEUP_MIGRATION: 'nakshatra_scooters_lineup_v5',
   ENQUIRIES: 'nakshatra_enquiries',
   TESTIMONIALS: 'nakshatra_testimonials',
   FAQS: 'nakshatra_faqs',
@@ -20,6 +20,9 @@ const STORAGE_KEYS = {
 
 const LEGACY_SCOOTER_IDS = new Set([
   'hestur-dyno-flagship',
+  'hestur-dyno-160',
+  'hestur-werewolf',
+  'hestur-werewolf-plus',
   'hestur-v200-flagship',
   'hestur-v100-pro',
   'hestur-v80-lite',
@@ -91,7 +94,7 @@ export const store = {
     const stored = getLocalItem<ScooterModel[]>(STORAGE_KEYS.SCOOTERS, []);
     let list = stored.length > 0 ? stored : INITIAL_SCOOTERS;
 
-    // One-time migration to the 3-model lineup (Hestur Dyno, Hestur Werewolf, Hestur Werewolf+)
+    // One-time migration to the official lineup (Hestur Dyno 80 km, Dyno 160 km, Werewolf 150 km, Werewolf+)
     if (
       stored.length > 0 &&
       typeof window !== 'undefined' &&
@@ -105,17 +108,6 @@ export const store = {
       } catch (e) {
         console.error('Error migrating scooter lineup in storage:', e);
       }
-    }
-
-    // Ensure Dyno rate is removed in stored state
-    const dyno = list.find((s) => s.id === 'hestur-dyno-flagship');
-    if (dyno && dyno.price > 0) {
-      dyno.price = 0;
-      dyno.description = dyno.description.replace(/\s*\(~₹58,000 \+ 5% GST, approx\. ₹60,900\)\./, '.');
-      dyno.features = dyno.features.filter((f) => !f.includes('58,000') && !f.includes('60,900'));
-      try {
-        localStorage.setItem(STORAGE_KEYS.SCOOTERS, JSON.stringify(list));
-      } catch (_) {}
     }
 
     return list.filter((s) => s.id !== 'hestur-v80-lite' && s.id !== 'hestur-cargo-delivery');

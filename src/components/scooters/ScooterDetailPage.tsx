@@ -144,7 +144,7 @@ export const ScooterDetailPage: React.FC<ScooterDetailPageProps> = ({
             <div className="p-4 bg-white border border-slate-200/80 rounded-2xl flex items-baseline justify-between shadow-sm">
               <div>
                 <span className="text-xs text-slate-500 block">
-                  {scooter.price > 0 ? 'Ex-Showroom Price' : 'Dealer Price'}
+                  {scooter.price > 0 ? 'On-Road Price' : 'Dealer Price'}
                 </span>
                 <span className="text-3xl font-extrabold text-slate-900 font-mono tabular-nums">
                   {formatScooterPrice(scooter.price)}

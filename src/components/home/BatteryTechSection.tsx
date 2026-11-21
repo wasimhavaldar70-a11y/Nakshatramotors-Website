@@ -45,29 +45,29 @@ export const BatteryTechSection: React.FC = () => {
 
   const scooterPowertrainModels = [
     {
-      model: 'Hestur Dyna / Dyno',
+      model: 'Hestur Dyno (80 km / 160 km)',
       motorPower: '1000 W',
-      topSpeed: '25 km/h',
-      claimedRange: '60–80 km',
-      batteryCharging: '1.5 kWh Lithium-ion (2–4 hrs charge)',
-      keyFeatures: 'Front disc brake, 160 kg load capacity, keyless entry, anti-theft alarm, USB port.',
+      topSpeed: '50 km/h',
+      claimedRange: '80–160 km',
+      batteryCharging: 'High-density pack (3–4 hrs charge)',
+      keyFeatures: 'Front disc brake, keyless entry, anti-theft alarm, USB port, on-road from ₹69,999.',
     },
     {
       model: 'Hestur WereWolf Plus',
       motorPower: '3000 W',
-      topSpeed: 'Mid-to-high speed',
-      claimedRange: '120 km',
+      topSpeed: 'Mid-to-high speed (~65 km/h)',
+      claimedRange: '150 km (up to 300 km in Eco)',
       batteryCharging: 'High-capacity pack (5 hrs charge)',
       keyFeatures: 'Available in 8 colors including Fiery Crimson Red and Graphite Grey Storm.',
     },
     {
-      model: 'Hestur WereWolf',
-      motorPower: '8000 W',
-      topSpeed: '90 km/h',
-      claimedRange: '180 km',
-      batteryCharging: '5 hrs charge',
+      model: 'Hestur WereWolf (150 km)',
+      motorPower: 'High-Torque Electric Motor',
+      topSpeed: '~65 km/h (up to 90 km/h peak)',
+      claimedRange: '150 km (up to 300 km in Eco)',
+      batteryCharging: 'Removable pack (5 hrs charge)',
       keyFeatures:
-        'Tubeless tyres, available in Tangerine Red, Sunburst Yellow, Obsidian Black, and Azure Blue.',
+        'Dual disc brakes, hill hold/assist, reverse gear, on-road ₹1,25,999.',
     },
     {
       model: '300 km Long-Range Variant',
